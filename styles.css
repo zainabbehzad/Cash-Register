@@ -7,22 +7,22 @@
 body {
   background-image: url(image/R.jpeg);
 }
-  
+
 h1 {
   color: rgb(255, 254, 254);
   font-size: 36px;
   text-align: center;
 }
-  
+
 section {
   margin-bottom: 40px;
 }
-  
+
 section h2 {
   color: #333;
   font-size: 24px;
 }
-  
+
 .input-div {
   display: flex;
   flex-direction: column;
@@ -31,12 +31,12 @@ section h2 {
   flex-wrap: wrap;
   margin: 20px 0 20px;
 }
- 
+
 label {
   font-size: 18px;
   color: bisque;
 }
-  
+
 .user-input {
   height: 30px;
   padding: 10px;
@@ -68,7 +68,7 @@ label {
   align-content: center;
   min-height: 100vh;
 }
-  
+
 .summary__container {
   color: rgb(255, 254, 254);
   grid-column-start: 1;
@@ -85,8 +85,8 @@ label {
   width: 400px;
   margin-left: 600px;
 }
-  
-.keypad, 
+
+.keypad,
 .keypad__options {
   background-color: black;
   grid-template-columns: 1fr 1fr;
@@ -98,7 +98,7 @@ label {
   height: 300px;
   width: 325px;
 }
-  
+
 .keypad__left,
 .keypad__options__left {
   display: grid;
@@ -106,12 +106,12 @@ label {
   column-gap: 10px;
   row-gap: 1.2em;
 }
-  
+
 .keypad__options__left {
   row-gap: 0;
 }
-  
-.keypad__options__left > h4 {
+
+.keypad__options__left>h4 {
   text-align: center;
   text-transform: uppercase;
   color: rgba(10, 14, 19, 0.9);
@@ -119,7 +119,7 @@ label {
   letter-spacing: 8px;
   padding-bottom: 5px;
 }
-  
+
 .container__grid button {
   background-color: rgba(245, 245, 245, 0.9);
   cursor: pointer;
@@ -131,17 +131,17 @@ label {
   border-radius: 10px;
   box-shadow: 0 8px 0 0 rgba(211, 211, 211, 0.9);
 }
-  
+
 .container__grid button:hover {
   background-color: rgba(123, 10, 10, 0.5);
   box-shadow: 0 8px 0 0 rgba(99, 10, 10, 0.5);
 }
-  
+
 .container__grid button:disabled {
   background-color: rgba(119, 136, 153, 0.5);
   cursor: not-allowed;
 }
-  
+
 .price-screen {
   border: 10px solid #6c0e3e;
   background-color: rgb(252, 242, 242);
@@ -156,7 +156,7 @@ label {
   align-items: center;
   justify-content: center;
 }
-  
+
 #price {
   font-size: 1.5rem;
   text-align: center;
@@ -175,4 +175,3 @@ label {
 span {
   font-size: 2rem;
 }
-  
