@@ -111,7 +111,7 @@ label {
 }
   
 .keypad__left,
- .keypad__options__left {
+.keypad__options__left {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   column-gap: 10px;
@@ -125,7 +125,7 @@ label {
 .keypad__options__left > h4 {
   text-align: center;
   text-transform: uppercase;
-  color: rgba(10, 14, 19, 0.9);;
+  color: rgba(10, 14, 19, 0.9);
   word-spacing: 15px;
   letter-spacing: 8px;
   padding-bottom: 5px;
