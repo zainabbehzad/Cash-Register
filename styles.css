@@ -5,8 +5,16 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family:
+  -apple-system, BlinkMacSystemFont, 
+  'Segoe UI',
+   'Roboto', 
+   'Oxygen',
+  'Ubuntu', 
+  'Cantarell', 
+  'Fira Sans', 
+  'Droid Sans', 
+  'Helvetica Neue',
   sans-serif;
   background-image: url(image/R.jpeg);
 }
@@ -16,7 +24,6 @@ h1 {
   font-size: 36px;
   text-align: center;
 }
-  
   
 section {
   margin-bottom: 40px;
@@ -90,7 +97,8 @@ label {
   margin-left: 600px;
 }
   
-.keypad, .keypad__options {
+.keypad, 
+.keypad__options {
   background-color: black;
   grid-template-columns: 1fr 1fr;
   column-gap: 10px;
@@ -102,7 +110,8 @@ label {
   width: 325px;
 }
   
-.keypad__left, .keypad__options__left {
+.keypad__left,
+ .keypad__options__left {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   column-gap: 10px;
