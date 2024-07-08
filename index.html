@@ -1,38 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>Cash Register</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <div class="All">
-  <h1>Cash Register</h1>
-  <div class="input-div">
-    <label for="cash">Enter cash from customer:</label>
-    <input type="number" id="cash" class="user-input" value="" />
-    <button class="check-btn-styles" id="purchase-btn">Purchase</button>
-  </div>
-  <div>
-    <p id="price-screen" class="price-screen">Total: $3.26</p>
-  </div>
-  <div class="container__grid">
-  <div id="change-due"></div>
-  <div class="summary__container">
-    <div class="entries" data-area-clipboard>
-        <strong>TRANSACTIONS</strong><br>
-        <span class="darkyellow__text">Pennies: &raquo;&raquo; <span data-init-value>$0.93</span></span><br>
-        Nickels: &raquo;&raquo; <span data-coffe-total>$2.02S</span><br>
-        Dimes: &raquo;&raquo; <span data-beer-total>$2.7</span><br>
-        Querters: &raquo;&raquo; <span data-drink-total>$3.25</span><br>
-        Ones: &raquo;&raquo; <span data-burger-total>$85</span><br>
-        Fives: &raquo;&raquo; <span data-sandwich-total>$45</span><br>
-        Tens: &raquo;&raquo; <span data-sandwich-total>$0</span><br>
-        Twenties: &raquo;&raquo; <span data-sandwich-total>$60</span><br>
-        Hundreds: &raquo;&raquo; <span data-sandwich-total>$0</span><br>
-  </div>
+  <head>
+    <title>Cash Register</title>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <div class="All">
+    <h1>Cash Register</h1>
+    <div class="input-div">
+      <label for="cash">Enter cash from customer:</label>
+      <input type="number" id="cash" class="user-input" value="" />
+      <button class="check-btn-styles" id="purchase-btn">Purchase</button>
     </div>
-  <div class="keypad">
-      <div class="keypad__left">
+    <div>
+      <p id="price-screen" class="price-screen">Total: $3.26</p>
+    </div>
+    <div class="container__grid">
+      <div id="change-due"></div>
+      <div class="summary__container">
+        <div class="entries" data-area-clipboard>
+          <strong>TRANSACTIONS</strong><br>
+          <span class="darkyellow__text">Pennies: &raquo;&raquo; <span data-init-value>$0.93</span></span><br>
+          Nickels: &raquo;&raquo; <span data-coffe-total>$2.02S</span><br>
+          Dimes: &raquo;&raquo; <span data-beer-total>$2.7</span><br>
+          Querters: &raquo;&raquo; <span data-drink-total>$3.25</span><br>
+          Ones: &raquo;&raquo; <span data-burger-total>$85</span><br>
+          Fives: &raquo;&raquo; <span data-sandwich-total>$45</span><br>
+          Tens: &raquo;&raquo; <span data-sandwich-total>$0</span><br>
+          Twenties: &raquo;&raquo; <span data-sandwich-total>$60</span><br>
+          Hundreds: &raquo;&raquo; <span data-sandwich-total>$0</span><br>
+        </div>
+      </div>
+      <div class="keypad">
+        <div class="keypad__left">
           <button data-number>1</button>
           <button data-number>2</button>
           <button data-number>3</button>
@@ -45,9 +47,9 @@
           <button data-number>0</button>
           <button data-number>.</button>
           <button class="lightgray" data-delete>DEL</button>
+        </div>
       </div>
     </div>
-  </div>
-  <script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
