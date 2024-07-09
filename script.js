@@ -8,7 +8,7 @@ const cid = [
   ['FIVE', 55],
   ['TEN', 20],
   ['TWENTY', 60],
-  ['ONE HUNDRED', 100]
+  ['ONE HUNDRED', 100],
 ];
 
 // Function definitions
@@ -86,8 +86,8 @@ document.getElementById('purchase-btn').addEventListener('click', () => {
       const coinValueB = cid.find((item) => item[0] === b[0])[1];
       return coinValueB - coinValueA;
     });
-    document.getElementById('change-due').innerText = 'Status: CLOSED; ' + formatChange(sortedChange);
+    document.getElementById('change-due').innerText = `Status: CLOSED; ${formatChange(sortedChange)}`;
   } else {
-    document.getElementById('change-due').innerText = 'Status: OPEN; ' + formatChange(change.change);
+    document.getElementById('change-due').innerText = `Status: OPEN; ${formatChange(change.change)}`;
   }
 });
