@@ -1,5 +1,5 @@
-let price = 3.26;
-let cid = [
+const price = 19.5;
+const cid = [
   ['PENNY', 1.01],
   ['NICKEL', 2.05],
   ['DIME', 3.1],
@@ -11,117 +11,83 @@ let cid = [
   ['ONE HUNDRED', 100]
 ];
 
-const displayChangeDue = document.getElementById('change-due');
-const cash = document.getElementById('cash');
-const purchaseBtn = document.getElementById('purchase-btn');
-const priceScreen = document.getElementById('price-screen');
-const cashDrawerDisplay = document.getElementById('cash-drawer-display');
+// Function definitions
+function calculateChange(changeDue, cid) {
+  const change = [];
+  let totalCid = cid.reduce((acc, curr) => acc + curr[1], 0);
+  totalCid = parseFloat(totalCid.toFixed(2));
 
-const formatResults = (status, change) => {
-  displayChangeDue.innerHTML = `<p>Status: ${status}</p>`;
-  change.map(
-    money => (displayChangeDue.innerHTML += `<p>${money[0]}: $${money[1]}</p>`)
-  );
-  return;
-};
-
-const checkCashRegister = () => {
-  if (Number(cash.value) < price) {
-    alert('Customer does not have enough money to purchase the item');
-    cash.value = '';
-    return;
+  if (totalCid < changeDue) {
+    return { status: 'INSUFFICIENT_FUNDS', change: [] };
   }
 
-  if (Number(cash.value) === price) {
-    displayChangeDue.innerHTML =
-      '<p>No change due - customer paid with exact cash</p>';
-    cash.value = '';
-    return;
-  }
+  const changeMap = {
+    'ONE HUNDRED': 100,
+    TWENTY: 20,
+    TEN: 10,
+    FIVE: 5,
+    ONE: 1,
+    QUARTER: 0.25,
+    DIME: 0.1,
+    NICKEL: 0.05,
+    PENNY: 0.01,
+  };
 
-  let changeDue = Number(cash.value) - price;
-  let reversedCid = [...cid].reverse();
-  let denominations = [100, 20, 10, 5, 1, 0.25, 0.1, 0.05, 0.01];
-  let result = { status: 'OPEN', change: [] };
-  let totalCID = parseFloat(
-    cid
-      .map(total => total[1])
-      .reduce((prev, curr) => prev + curr)
-      .toFixed(2)
-  );
+  const changeDueCopy = changeDue;
 
-  if (totalCID < changeDue) {
-    return (displayChangeDue.innerHTML = "Status: INSUFFICIENT_FUNDS");
-  }
+  for (let i = cid.length - 1; i >= 0; i -= 1) {
+    const coin = cid[i][0];
+    let coinTotal = cid[i][1];
+    const coinValue = changeMap[coin];
+    let toGive = 0;
 
-  if (totalCID === changeDue) {
-    result.status = 'CLOSED';
-  }
+    while (changeDue >= coinValue && coinTotal > 0) {
+      changeDue -= coinValue;
+      changeDue = parseFloat(changeDue.toFixed(2));
+      coinTotal -= coinValue;
+      toGive += coinValue;
+    }
 
-  for (let i = 0; i <= reversedCid.length; i++) {
-    if (changeDue >= denominations[i] && changeDue > 0) {
-      let count = 0;
-      let total = reversedCid[i][1];
-      while (total > 0 && changeDue >= denominations[i]) {
-        total -= denominations[i];
-        changeDue = parseFloat((changeDue -= denominations[i]).toFixed(2));
-        count++;
-      }
-      if (count > 0) {
-        result.change.push([reversedCid[i][0], count * denominations[i]]);
-      }
+    if (toGive > 0) {
+      change.push([coin, toGive]);
     }
   }
+
   if (changeDue > 0) {
-    return (displayChangeDue.innerHTML = '<p>Status: INSUFFICIENT_FUNDS</p>');
+    return { status: 'INSUFFICIENT_FUNDS', change: [] };
   }
 
-  formatResults(result.status, result.change);
-  updateUI(result.change);
-};
-
-const checkResults = () => {
-  if (!cash.value) {
-    return;
+  if (totalCid === changeDueCopy) {
+    return { status: 'CLOSED', change };
   }
-  checkCashRegister();
-};
 
-const updateUI = change => {
-  const currencyNameMap = {
-    PENNY: 'Pennies',
-    NICKEL: 'Nickels',
-    DIME: 'Dimes',
-    QUARTER: 'Quarters',
-    ONE: 'Ones',
-    FIVE: 'Fives',
-    TEN: 'Tens',
-    TWENTY: 'Twenties',
-    'ONE HUNDRED': 'Hundreds'
-  };
-  // Update cid if change is passed in
-  if (change) {
-    change.forEach(changeArr => {
-      const targetArr = cid.find(cidArr => cidArr[0] === changeArr[0]);
-      targetArr[1] = parseFloat((targetArr[1] - changeArr[1]).toFixed(2));
+  return { status: 'OPEN', change };
+}
+
+function formatChange(change) {
+  return change.map((item) => `${item[0]}: $${item[1].toFixed(2)}`).join(', ');
+}
+
+// Event listener
+document.getElementById('purchase-btn').addEventListener('click', () => {
+  const cash = parseFloat(document.getElementById('cash').value);
+  const changeDue = cash - price;
+  const change = calculateChange(changeDue, cid);
+
+  if (cash < price) {
+    alert('Customer does not have enough money to purchase the item');
+  } else if (cash === price) {
+    document.getElementById('change-due').innerText = 'No change due - customer paid with exact cash';
+  } else if (change.status === 'INSUFFICIENT_FUNDS') {
+    document.getElementById('change-due').innerText = 'Status: INSUFFICIENT_FUNDS';
+  } else if (change.status === 'CLOSED') {
+    const sortedChange = change.change.sort((a, b) => {
+      const coinValueA = cid.find((item) => item[0] === a[0])[1];
+      const coinValueB = cid.find((item) => item[0] === b[0])[1];
+      return coinValueB - coinValueA;
     });
-  }
-
-  cash.value = '';
-  priceScreen.textContent = `Total: $${price}`;
-  cashDrawerDisplay.innerHTML = `<p><strong>Change in drawer:</strong></p>
-    ${cid
-      .map(money => `<p>${currencyNameMap[money[0]]}: $${money[1]}</p>`)
-      .join('')}  
-  `;
-};
-
-purchaseBtn.addEventListener('click', checkResults);
-
-cash.addEventListener('keydown', e => {
-  if (e.key === 'Enter') {
-    checkResults();
+    document.getElementById('change-due').innerText = 'Status: CLOSED; ' + formatChange(sortedChange);
+  } else {
+    document.getElementById('change-due').innerText = 'Status: OPEN; ' + formatChange(change.change);
   }
 });
-
-updateUI();
