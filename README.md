@@ -7,6 +7,8 @@
 ## Demo 📸
 ![Screenshot (46)](https://github.com/zainabbehzad/Cash-Register/assets/168668702/f23f3390-6352-4b6e-aa8d-9904392ac8c7)
 
+live Demo [https://zainabbehzad.github.io/Cash-Register/]
+
 
 ## Cash-Register 🛠️
 - HTML
