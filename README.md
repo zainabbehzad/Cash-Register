@@ -5,9 +5,8 @@
 🌟 👩‍💻A cash register is a device used in retail stores and other businesses to record transactions, calculate change, and facilitate the handling of cash and other forms of payment.Cash registers can range from simple, manual devices to sophisticated, computerized systems that are integrated with other business management software. The choice of cash register depends on the size and needs of the business, as well as the type of transactions it handles.💻📝🚀
 
 ## Demo 📸
-![Screenshot (42)](https://github.com/zainabbehzad/Telephone-Number-Validator/assets/168668702/3d559e7d-2364-49b1-b0cf-0524040ac675)
+![Screenshot (46)](https://github.com/zainabbehzad/Cash-Register/assets/168668702/f23f3390-6352-4b6e-aa8d-9904392ac8c7)
 
-Live Link: [https://zainabbehzad.github.io/Telephone-Number-Validator/]
 
 ## Cash-Register 🛠️
 - HTML
