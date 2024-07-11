@@ -1,0 +1,63 @@
+body {
+  background-color: rgb(235, 194, 186);
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  background-color: antiquewhite;
+  margin: 0 auto;
+  padding: 20px;
+  border: 2px solid #98d893;
+  border-radius: 5px;
+  max-width: 500px;
+  text-align: center;
+  margin-top: 150px;
+}
+
+h1 {
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #98d893;
+  border-radius: 5px;
+  margin-left: -10px;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  background-color: rgb(235, 194, 186);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #98d893;
+}
+
+#change-due {
+  margin-top: 20px;
+}
+
+#cash-drawer-display {
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 90%;
+  }
+}
